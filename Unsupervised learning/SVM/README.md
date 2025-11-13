@@ -37,7 +37,7 @@ SVM/
 ### 🔗 Direct Project Links
 
 * **💳 Credit Card Default Prediction** → [Open Folder](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/SVM/SVM-CreditCard%20payment)
-* **🏦 Universal Bank Loan Prediction** → [Open Folder]([./SVM-Universal-Bank](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/SVM/SVM-Universal%20Bank))
+* **🏦 Universal Bank Loan Prediction** → [Open Folder](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/SVM/SVM-Universal%20Bank)
 
 ---
 
@@ -136,5 +136,6 @@ If you like this folder or learned something from it, feel free to **star the re
 
 
 Just say **"generate icons"** or **"generate infographic"**!
+
 
 
