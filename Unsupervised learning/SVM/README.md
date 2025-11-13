@@ -134,8 +134,3 @@ If you like this folder or learned something from it, feel free to **star the re
 
 ---
 
-
-Just say **"generate icons"** or **"generate infographic"**!
-
-
-
