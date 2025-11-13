@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Prediction Result 🌿</h1>
+
+    <p class="result">The predicted species is:  
+        <strong>{{ result }}</strong>
+    </p>
+
+    <h3>Entered values:</h3>
+    <ul>
+        <li>Sepal Length: {{ sl }}</li>
+        <li>Sepal Width: {{ sw }}</li>
+        <li>Petal Length: {{ pl }}</li>
+        <li>Petal Width: {{ pw }}</li>
+    </ul>
+
+    <a href="/" class="back">🔙 Back</a>
+</div>
+
+</body>
+</html>
