@@ -1,158 +1,138 @@
-# 💳 Universal Bank Loan Prediction (SVM + PCA + SMOTE)
+# 🤖 Support Vector Machine (SVM) Projects
 
-[![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.4-orange?logo=scikit-learn)](https://scikit-learn.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)](https://pandas.pydata.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-Linear%20Algebra-blue?logo=numpy)](https://numpy.org/)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-yellow?logo=plotly)](https://matplotlib.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+### *(Credit Risk • Banking Analytics • Classification Pipelines)*
 
----
+A curated collection of my **Support Vector Machine (SVM)** classification projects applied to real-world financial datasets.
 
-## 🧠 Project Overview
+[![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)]()
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML%20Models-orange?logo=scikit-learn)]()
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)]()
+[![NumPy](https://img.shields.io/badge/NumPy-Linear%20Algebra-013243?logo=numpy)]()
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557c?logo=matplotlib)]()
+[![Imbalanced-Learn](https://img.shields.io/badge/ImbalancedLearn-SMOTE-green)]()
 
-This notebook demonstrates an end-to-end machine learning pipeline for predicting **whether a bank customer will accept a personal loan offer**.
+<img width="1000" alt="SVM Projects Banner" src="https://github.com/user-attachments/assets/5ef14b3f-f475-4690-968c-83f4f74911ef" />
 
-The workflow integrates:
-- **SVM (Support Vector Machine)** for classification  
-- **PCA** for dimensionality reduction  
-- **SMOTE** for class-imbalance correction  
-- **GridSearchCV** for hyperparameter optimization  
+Welcome to my **SVM Machine Learning Portfolio**, where I explore and implement Support Vector Machine models on real-world financial datasets.
+
+This folder contains **two complete ML projects**, each with their own notebooks, visualizations, and modeling pipelines.
 
 ---
 
-## ⚙️ Tech Stack & Libraries
+# 📂 Folder Structure
 
-| Category | Tools & Libraries |
-|-----------|------------------|
-| Programming | Python |
-| Data Manipulation | Pandas, NumPy |
-| Visualization | Matplotlib, Seaborn |
-| ML Modeling | Scikit-learn (SVC, PCA, GridSearchCV), imbalanced-learn (SMOTE) |
-| Notebook | Jupyter (.ipynb) |
-
----
-
-## 📊 Dataset Description
-
-The **Universal Bank** dataset contains customer demographics and financial behavior features used to predict loan acceptance.
-
-| Feature | Description |
-|----------|--------------|
-| `Age`, `Experience`, `Income` | Demographics |
-| `CCAvg` | Average monthly credit card spending |
-| `Mortgage` | Mortgage value |
-| `Securities Account`, `CD Account`, `Online`, `CreditCard` | Binary indicators |
-| `Personal Loan` | Target (1 = accepted, 0 = not accepted) |
-
----
-
-## 🔍 Workflow Summary
-
-### 🧩 Step 1: Data Preprocessing
-- Handled missing values, outliers, and feature scaling  
-
-### ⚖️ Step 2: Imbalance Handling
-- Applied **SMOTE** to oversample minority class  
-
-### 📉 Step 3: Dimensionality Reduction
-- Used **PCA (95% variance)** to eliminate redundancy  
-
-### 🧪 Step 4: Model Tuning
-GridSearchCV tested multiple hyperparameter combinations:
-```python
-'C': [1, 10, 100]
-'gamma': ['scale', 0.1, 0.01, 0.001]
-'kernel': ['rbf']
-'class_weight': [None, 'balanced']
-````
-
-### 📈 Step 5: Model Evaluation
-
-| Metric    | Class 0 | Class 1 |
-| --------- | ------- | ------- |
-| Precision | 0.71    | 0.29    |
-| Recall    | 0.89    | 0.11    |
-| F1-score  | 0.79    | 0.16    |
-
-**Accuracy:** 0.66
-**Best Params:** `C=10`, `gamma=0.001`, `kernel='rbf'`, `class_weight='balanced'`
-
----
-
-## 📊 Visualizations
-
-* **PCA Scree Plot**
-* **Confusion Matrix Heatmap**
-* **SVM Decision Surface (2D PCA Projection)**
-  *(screenshots or plots can be added here)*
-
----
-
-## 🧠 Insights
-
-* PCA + SMOTE improved model balance and interpretability.
-* SVM achieved high accuracy for the majority class but struggled with minority recall.
-* Adding `class_weight='balanced'` improved minority detection.
-
----
-
-## 🚀 Run Locally
-
-```bash
-# Clone repo
-git clone https://github.com/<your-username>/SVM_Universal_Bank.git
-cd SVM_Universal_Bank
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate   # (Windows: venv\Scripts\activate)
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch notebook
-jupyter notebook SVM_Universal_Bank.ipynb
+```
+SVM/
+│── SVM-CreditCard-Payment/
+│     └── Credit_card.ipynb
+│
+│── SVM-Universal-Bank/
+│     └── SVM_Universal_Bank.ipynb
+│
+└── README.md   ← (this file)
 ```
 
 ---
 
-## 📦 Requirements
+### 🔗 Direct Project Links
 
-```txt
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-imbalanced-learn
-```
+* **💳 Credit Card Default Prediction** → [Open Folder](./SVM-CreditCard-Payment)
+* **🏦 Universal Bank Loan Prediction** → [Open Folder](./SVM-Universal-Bank)
 
 ---
 
-## 🧭 Future Improvements
+# 📘 Projects Included
 
-* Try **XGBoost** or **Random Forest** for interpretability
-* Add **Flask** web interface for deployment
-* Evaluate using **precision-recall AUC**
-* Explore **SMOTEENN / ADASYN** for better synthetic samples
+Below are short introductions to each SVM project.
+Each project has its **own README** inside its folder with full details.
 
 ---
 
-## 👨‍💻 Author
+## 1️⃣ **💳 SVM – Credit Card Default Prediction**
+
+### 🧠 Objective
+
+Predict whether a credit card user will **default next month** using advanced SVM techniques.
+
+### 🔧 Techniques Used
+
+* Downsampling (resample) to balance classes
+* One-hot encoding
+* `scale()` feature standardization
+* SVM (rbf kernel)
+* PCA (explained variance + visualization)
+* GridSearchCV tuning
+* Decision boundary plot (PCA-based)
+
+### 📈 Summary Results
+
+* Accuracy: **66%**
+* Best model: `C=100`, `gamma=0.001`, `kernel='rbf'`
+* PCA visualization & confusion matrix
+
+📁 Notebook:
+👉 `SVM-CreditCard-Payment/Credit_card.ipynb`
+
+---
+
+## 2️⃣ **🏦 SVM – Universal Bank Loan Acceptance Prediction**
+
+### 🧠 Objective
+
+Predict whether a bank customer will **accept a personal loan offer**.
+
+### 🔧 Techniques Used
+
+* SMOTE oversampling
+* StandardScaler + Pipeline
+* PCA (95% variance retained)
+* GridSearchCV (C, gamma, kernel, class_weight)
+* Confusion matrix, scree plot, decision boundary
+
+### 📈 Summary Results
+
+* Accuracy: **66%**
+* Best model: `C = 10`, `gamma = 0.001`, `kernel='rbf'`, `class_weight='balanced'`
+
+📁 Notebook:
+👉 `SVM-Universal-Bank/SVM_Universal_Bank.ipynb`
+
+---
+
+# 🚀 Tech Stack
+
+Python • Pandas • NumPy • Scikit-Learn • SMOTE • Matplotlib • Seaborn • Jupyter Notebook
+
+---
+
+# 🎯 Skills Demonstrated
+
+✔️ Data cleaning & preprocessing
+✔️ Handling imbalanced data
+✔️ PCA dimensionality reduction
+✔️ Hyperparameter optimization
+✔️ SVM modeling (rbf kernel)
+✔️ Confusion matrix analysis
+✔️ ML visualization
+✔️ Building full ML pipelines
+
+---
+
+# 🔗 Connect With Me
 
 **Awab Elkhair Abdalla Idris**
-🎓 Electronics & Computer Engineer | 🤖 Machine Learning Engineer | 🌍 UN Youth Delegate
+Machine Learning Engineer | Electronics Engineer | UN Youth Delegate
 
-[![GitHub](https://img.shields.io/badge/GitHub-Pinkkygold-black?logo=github)](https://github.com/Pinkkygold)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Awab%20Elkhair-blue?logo=linkedin)](https://linkedin.com/in/awab-elkhair)
-
----
-
-## 🪪 License
-
-Licensed under the [MIT License](LICENSE).
+🌐 GitHub: [https://github.com/Pinkkygold](https://github.com/Pinkkygold)
+🔗 LinkedIn: [https://linkedin.com/in/awab-elkhair](https://linkedin.com/in/awab-elkhair)
 
 ---
 
-⭐ **If you like this project, please star the repo!**
+# ⭐ Contributions
+
+If you like this folder or learned something from it, feel free to **star the repository** ⭐
+
+---
+
+
+Just say **"generate icons"** or **"generate infographic"**!
