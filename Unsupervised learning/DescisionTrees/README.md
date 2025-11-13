@@ -18,9 +18,13 @@ A machine learning model that predicts the most suitable crop to grow based on s
 **Tech Used:**
 Python, Scikit-Learn, DecisionTreeClassifier (entropy), Pandas, NumPy, StandardScaler, Flask, Render Deployment
 
-🔗 Live App: [https://croprecommendation-nt2w.onrender.com](https://croprecommendation-nt2w.onrender.com)
+🔗 Live App:
+[https://croprecommendation-nt2w.onrender.com](https://croprecommendation-nt2w.onrender.com)
+
 📁 Folder:
 [https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/DescisionTrees/Crop%20Recommendation](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/DescisionTrees/Crop%20Recommendation)
+
+<br>
 
 **Features:**
 
@@ -37,8 +41,13 @@ A classification model predicting the likelihood of heart attack based on patien
 **Tech Used:**
 Python, Scikit-Learn, Decision Tree, Class Balancing, Flask
 
+🔗 Live App:
+[https://hearattack-with-decisiontree.onrender.com](https://hearattack-with-decisiontree.onrender.com)
+
 📁 Folder:
 [https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/DescisionTrees/HearAttack%20with%20DecisionTree](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20learning/DescisionTrees/HearAttack%20with%20DecisionTree)
+
+<br>
 
 **Features:**
 
