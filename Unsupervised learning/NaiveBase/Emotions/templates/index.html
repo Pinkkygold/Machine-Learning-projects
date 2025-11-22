@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Emotion Detection App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0f172a;
+            margin: 0;
+            padding: 0;
+            color: #e5e7eb;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #020617;
+            border-radius: 18px;
+            padding: 24px 26px 32px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid #1f2937;
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 1.9rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin-top: 6px;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        form {
+            margin-bottom: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            background: #020617;
+            color: #e5e7eb;
+            font-size: 1rem;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        button {
+            border-radius: 999px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 9px 18px;
+            margin-top: 6px;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #111827;
+            color: #e5e7eb;
+            border: 1px solid #374151;
+            margin-right: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: #1f2937;
+        }
+
+        .examples {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .section-title {
+            margin-top: 24px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9ca3af;
+        }
+
+        .result-card {
+            margin-top: 12px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #020617;
+            border: 1px solid #1f2937;
+        }
+
+        .main-emotion-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .emotion-positive {
+            background: rgba(52, 211, 153, 0.14);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .emotion-negative {
+            background: rgba(248, 113, 113, 0.14);
+            color: #fecaca;
+            border: 1px solid rgba(239, 68, 68, 0.5);
+        }
+
+        .emotion-neutral {
+            background: rgba(59, 130, 246, 0.16);
+            color: #bfdbfe;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .prob-list {
+            margin-top: 14px;
+        }
+
+        .prob-item {
+            margin-bottom: 8px;
+        }
+
+        .prob-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .prob-bar-bg {
+            width: 100%;
+            height: 8px;
+            border-radius: 999px;
+            background: #020617;
+            border: 1px solid #111827;
+            overflow: hidden;
+        }
+
+        .prob-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+        }
+
+        .no-result {
+            margin-top: 6px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 600px) {
+            .btn-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-row > div {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function setExample(text) {
+            const textarea = document.getElementById("text");
+            textarea.value = text;
+            textarea.focus();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion Detection</h1>
+        <p class="subtitle">
+            Type any sentence and let the model predict the underlying emotion.
+        </p>
+
+        <form method="POST">
+            <textarea
+                id="text"
+                name="text"
+                placeholder="Example: I am so happy and excited about my new project! 😊"
+            >{{ user_text }}</textarea>
+
+            <div class="btn-row">
+                <button type="submit" class="btn-primary">Analyze Emotion</button>
+
+                <div>
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        onclick="setExample('I am feeling so happy and grateful today!')"
+                    >
+                        Joy example
+                    </button>
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        onclick="setExample('I am really sad and disappointed about what happened.')"
+                    >
+                        Sadness example
+                    </button>
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        onclick="setExample('I am so angry right now, this is unacceptable!')"
+                    >
+                        Anger example
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="section-title">Result</div>
+        <div class="result-card">
+            {% if prediction %}
+                {% set lower_pred = prediction|lower %}
+                {% if 'joy' in lower_pred or 'happy' in lower_pred or 'love' in lower_pred %}
+                    {% set pill_class = 'emotion-positive' %}
+                {% elif 'anger' in lower_pred or 'sad' in lower_pred or 'fear' in lower_pred or 'disgust' in lower_pred %}
+                    {% set pill_class = 'emotion-negative' %}
+                {% else %}
+                    {% set pill_class = 'emotion-neutral' %}
+                {% endif %}
+
+                <div class="main-emotion-pill {{ pill_class }}">
+                    <span>Predicted emotion:</span>
+                    <span style="text-transform: capitalize;">{{ prediction }}</span>
+                </div>
+
+                {% if probabilities %}
+                    <div class="prob-list">
+                        {% for item in probabilities %}
+                            <div class="prob-item">
+                                <div class="prob-label-row">
+                                    <span style="text-transform: capitalize;">{{ item.label }}</span>
+                                    <span>{{ item.prob }}%</span>
+                                </div>
+                                <div class="prob-bar-bg">
+                                    <div class="prob-bar-fill" style="width: {{ item.prob }}%;"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <p class="no-result">
+                    No prediction yet. Type a sentence above and click <strong>Analyze Emotion</strong>.
+                </p>
+            {% endif %}
+        </div>
+
+        <div class="section-title">About</div>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 8px;">
+            This app uses a machine learning model trained on labeled emotion text data.
+            The model is built with a Scikit-Learn / Imbalanced-Learn pipeline
+            (e.g., TF-IDF + Multinomial Naive Bayes) and deployed with Flask.
+        </p>
+    </div>
+</body>
+</html>
