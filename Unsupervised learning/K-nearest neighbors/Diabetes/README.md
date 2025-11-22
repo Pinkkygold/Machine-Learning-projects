@@ -118,8 +118,9 @@ This makes the prediction easier to interpret for non-technical users.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-diabetes-repo>.git
-cd <your-diabetes-repo>
+cd "Machine-Learning-projects/Unsupervised learning/K-nearest neighbors"
+cd Diabetes
+
 ```
 
 ### 2. (Optional) Create and activate a virtual environment
@@ -207,6 +208,7 @@ Created by **Awab Elkhair Abdalla Idris (Pinkkygold)**
 * LinkedIn: https://github.com/Pinkkygold
 
 If you find this project useful or inspiring, feel free to ⭐ star the repository and share it!
+
 
 
 
