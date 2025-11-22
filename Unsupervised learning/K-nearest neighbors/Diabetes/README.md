@@ -204,8 +204,9 @@ Always consult a licensed medical professional.
 Created by **Awab Elkhair Abdalla Idris (Pinkkygold)**
 
 * GitHub: [https://github.com/Pinkkygold](https://github.com/Pinkkygold)
-* LinkedIn: *add your LinkedIn profile link here*
+* LinkedIn: https://github.com/Pinkkygold
 
 If you find this project useful or inspiring, feel free to ⭐ star the repository and share it!
+
 
 
