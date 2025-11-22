@@ -97,8 +97,10 @@ with open("Emotions_model.pkl", "wb") as f:
 ### 1️⃣ Clone the project
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/<REPO-NAME>.git
-cd <REPO-NAME>
+git clone https://github.com/Pinkkygold/Machine-Learning-projects/Unsupervised learning.git
+cd 'NaiveBase/Emotions'
+pip install -r requirements.txt
+python app.py
 ```
 
 ### 2️⃣ Create a virtual environment
@@ -217,5 +219,6 @@ Machine Learning Engineer | AI enthusiast | UN Youth Delegate
 
 🔗 GitHub: (https://github.com/Pinkkygold)
 🔗 LinkedIn: www.linkedin.com/in/awab-abdalla
+
 
 
