@@ -160,8 +160,10 @@ Created and maintained by **Awab Elkhair Abdalla Idris (Pinkkygold)**
 Machine Learning Engineer in progress | AI for social impact | UN Youth Delegate
 
 * GitHub: [https://github.com/Pinkkygold](https://github.com/Pinkkygold)
-* LinkedIn: *(add your LinkedIn link here)*
+* LinkedIn: www.linkedin.com/in/awab-abdalla
+
 
 If you like this structure, feel free to ⭐ the repo and reuse the pattern in your own projects.
+
 
 
