@@ -92,7 +92,7 @@ Part of my collection of real-world ML apps built end-to-end for my GitHub portf
 ## ▶️ **Run Locally**
 
 ```bash
-git clone https://github.com/yourusername/spam-ham-classifier.git
+git clone https://github.com/Pinkkygold/Machine-Learning-projects/Unsupervised learning.git
 cd spam-ham-classifier
 pip install -r requirements.txt
 python app.py
@@ -118,5 +118,6 @@ LinkedIn: **[https://linkedin.com/in/awabidris](https://linkedin.com/in/awabidri
 ## ⭐ **Support**
 
 If you like this project, don’t forget to ⭐ **star this repository**!
+
 
 
