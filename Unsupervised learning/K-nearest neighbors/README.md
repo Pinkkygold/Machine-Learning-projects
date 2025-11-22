@@ -156,7 +156,3 @@ LinkedIn: www.linkedin.com/in/awab-abdalla
 ⭐ If these projects helped you, consider starring the repository!
 
 ---
-
-
-
-Just tell me!
