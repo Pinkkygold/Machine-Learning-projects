@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Simple, clean styling -->
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 16px 40px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 32px;
+            color: #9ca3af;
+        }
+        .card {
+            background: #020617;
+            border-radius: 18px;
+            padding: 20px 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 18px 45px rgba(15,23,42,0.8);
+            border: 1px solid rgba(148,163,184,0.25);
+        }
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid #4b5563;
+            background: #020617;
+            color: #e5e7eb;
+            box-sizing: border-box;
+        }
+        select:focus, input[type="number"]:focus {
+            outline: 2px solid #38bdf8;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: #0b1120;
+            font-size: 0.95rem;
+        }
+        .flex {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .flex-1 {
+            flex: 1 1 260px;
+        }
+        .recommendations {
+            margin-top: 8px;
+        }
+        .pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(148,163,184,0.15);
+            font-size: 0.78rem;
+            margin-left: 6px;
+            color: #9ca3af;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.12);
+            font-size: 0.75rem;
+            color: #7dd3fc;
+            margin-left: 6px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(148,163,184,0.35);
+            font-size: 0.93rem;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .error {
+            color: #fca5a5;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(248,250,252,0.06);
+            border: 1px solid rgba(148,163,184,0.4);
+            margin-left: 6px;
+        }
+        .footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #6b7280;
+        }
+        @media (prefers-color-scheme: light) {
+            body {
+                background: #f3f4f6;
+                color: #111827;
+            }
+            .card {
+                background: #ffffff;
+                box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+            }
+            select, input[type="number"] {
+                background: #ffffff;
+                color: #111827;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🎬 Movie Recommendation Engine</h1>
+    <p class="subtitle">
+        Pick a movie you like or rate a few favourites — we'll suggest similar titles using a content-based recommendation system.
+    </p>
+
+    <!-- By single movie -->
+    <div class="card">
+        <h2>1. Recommend based on a single movie</h2>
+        <form method="POST" action="/recommend-by-movie">
+            <label for="movie_id">Choose a movie</label>
+            <select id="movie_id" name="movie_id" required>
+                {% for movie in movies %}
+                    <option value="{{ movie.id }}"
+                        {% if movie.id == selected_movie_id %}selected{% endif %}>
+                        {{ movie.title }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="k_single">How many recommendations?</label>
+            <input id="k_single" type="number" name="k" value="5" min="1" max="20"/>
+
+            <button type="submit" class="btn">Get recommendations</button>
+        </form>
+
+        {% if mode == "by_movie" and recommendations %}
+            <div class="recommendations">
+                <p>
+                    Because you chose
+                    <strong>{{ base_title }}</strong>
+                    <span class="badge">KNN neighbours</span>
+                </p>
+                <ul>
+                    {% for rec in recommendations %}
+                        <li>
+                            {{ loop.index }}. {{ rec.title }}
+                            <span class="pill">Avg rating: {{ rec.rating }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- By 3 ratings -->
+    <div class="card">
+        <h2>2. Recommend from your own ratings (up to 3 movies)</h2>
+
+        <form method="POST" action="/recommend-by-ratings">
+            <div class="flex">
+                <div class="flex-1">
+                    <label>Movie 1</label>
+                    <select name="movie_1">
+                        <option value="">-- choose a movie --</option>
+                        {% for movie in movies %}
+                            <option value="{{ movie.id }}">{{ movie.title }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Your rating (1–5)</label>
+                    <input type="number" name="rating_1" step="0.5" min="0" max="5" placeholder="e.g. 4.5">
+                </div>
+
+                <div class="flex-1">
+                    <label>Movie 2</label>
+                    <select name="movie_2">
+                        <option value="">-- choose a movie --</option>
+                        {% for movie in movies %}
+                            <option value="{{ movie.id }}">{{ movie.title }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Your rating (1–5)</label>
+                    <input type="number" name="rating_2" step="0.5" min="0" max="5" placeholder="e.g. 3">
+                </div>
+
+                <div class="flex-1">
+                    <label>Movie 3</label>
+                    <select name="movie_3">
+                        <option value="">-- choose a movie --</option>
+                        {% for movie in movies %}
+                            <option value="{{ movie.id }}">{{ movie.title }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Your rating (1–5)</label>
+                    <input type="number" name="rating_3" step="0.5" min="0" max="5" placeholder="e.g. 5">
+                </div>
+            </div>
+
+            <label for="k_profile">How many recommendations?</label>
+            <input id="k_profile" type="number" name="k" value="5" min="1" max="20"/>
+
+            <button type="submit" class="btn">Build my taste profile</button>
+        </form>
+
+        {% if mode == "by_ratings" %}
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% elif recommendations %}
+                <div class="recommendations">
+                    <p>
+                        Based on your ratings
+                        <span class="tag">personalised profile</span>
+                    </p>
+                    <ul>
+                        {% for rec in recommendations %}
+                            <li>
+                                {{ loop.index }}. {{ rec.title }}
+                                <span class="pill">Avg rating: {{ rec.rating }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        Built with Flask, pandas, NumPy & a simple cosine-based KNN recommender.
+    </div>
+</div>
+</body>
+</html>
