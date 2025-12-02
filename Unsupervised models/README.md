@@ -1,7 +1,6 @@
 # 🧠 Unsupervised Machine Learning – Project Collection
 
-This folder contains a collection of **unsupervised machine learning projects**, each demonstrating real-world clustering and similarity-based recommendation techniques.
-All projects include clean preprocessing, model implementation, visualization, and deployment-ready workflows.
+This folder contains a collection of **unsupervised machine learning projects**, demonstrating real-world clustering and similarity-based recommendation techniques.
 
 ---
 
@@ -27,72 +26,53 @@ All projects include clean preprocessing, model implementation, visualization, a
 ## 1️⃣ 🎗️ Customer Segmentation Using K-Means
 
 **GitHub:**
-👉 [https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20models/K%20means](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20models/K%20means)
+👉 **[K-Means Project](./K%20means)**
 
-A complete unsupervised ML workflow using **K-Means Clustering** to group mall customers based on:
+A complete unsupervised ML workflow using **K-Means** to cluster customers by:
 
-* **Annual Income**
-* **Spending Score**
+* Annual Income
+* Spending Score
 
 ### 🔍 What This Project Demonstrates
 
-✔ Data preprocessing & cleaning
-✔ Gender conversion to numeric form
-✔ Elbow Method to find optimal K
-✔ Cluster visualization using Matplotlib
-✔ Predicting the cluster of new customers
-✔ Saving the trained model with `pickle`
+✔ Data preprocessing
+✔ Gender encoding
+✔ Elbow Method for optimal K
+✔ Cluster visualization
+✔ Predicting new customer segments
+✔ Saving model with `pickle`
 
 ### 🔧 Tech Stack
 
-* Pandas
-* NumPy
-* Matplotlib
-* Scikit-Learn (KMeans)
-* Pickle
-
-### 📁 Project Files
-
-* `Mall_Customers.csv`
-* `CustomersWithKmeans.pkl`
-* `customer_segmentation.ipynb`
-* `README.md`
+Pandas • NumPy • Matplotlib • Scikit-Learn • Pickle
 
 ---
 
 ## 2️⃣ 🎬 Movie Recommendation System (Content-Based)
 
 **Live Demo:**
-👉 [https://movierecommender-ovt8.onrender.com](https://movierecommender-ovt8.onrender.com)
+👉 **[Movie Recommender App](https://movierecommender-ovt8.onrender.com)**
 
 **GitHub:**
-👉 [https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20models/RecommendationSystem](https://github.com/Pinkkygold/Machine-Learning-projects/tree/main/Unsupervised%20models/RecommendationSystem)
+👉 **[Recommendation System](./RecommendationSystem)**
 
-A lightweight, efficient, similarity-based movie recommender system that suggests movies using:
+This is a pure **content-based similarity engine**, using:
 
-* 🎭 **Genre vectors**
-* ⭐ **Movie ratings**
-* 📐 **Cosine similarity + rating distance**
+* 🎭 Genre vectors
+* ⭐ Rating differences
+* 📐 Cosine similarity
 
-### 🧠 Key Concepts in This Project
+### 🧠 Key Concepts
 
-✔ One-hot vectorization of genres
-✔ Average rating aggregation
-✔ Cosine distance for genre similarity
-✔ Highly responsive Flask web app
-✔ Instant recommendations with no training
-✔ Full deployment on Render Cloud
-
-This system does **not** use supervised models — it is fully **unsupervised similarity matching**.
+✔ One-hot encoding of genres
+✔ Rating aggregation
+✔ Distance-based similarity
+✔ Fully deployed Flask UI
+✔ Instant recommendations (no training)
 
 ### 🛠️ Tech Stack
 
-* Python
-* Flask
-* Pandas, NumPy
-* SciPy (cosine similarity)
-* HTML, CSS, Jinja2
-* Render Cloud
+Python • Flask • Pandas • NumPy • SciPy • HTML • CSS • Jinja2 • Render Cloud
 
 ---
 
@@ -110,7 +90,7 @@ Unsupervised models/
 └── RecommendationSystem/
     ├── movies.csv
     ├── ratings.csv
-    ├── app.py (if deployed)
+    ├── app.py
     ├── templates/
     ├── static/
     └── README.md
@@ -120,14 +100,15 @@ Unsupervised models/
 
 # 💡 Learning Outcomes
 
-By exploring these projects, you gain hands-on experience in:
+By exploring these projects, you will understand:
 
 * Clustering algorithms
-* Similarity-based recommendation systems
-* Feature engineering & vectorization
-* Data visualization techniques
-* Web deployment with Flask
-* Real-world ML app design
+* Similarity-based recommendations
+* Feature vectorization
+* Cosine similarity
+* Data visualization
+* Flask web deployment
+* Building real-world unsupervised ML apps
 
 ---
 
@@ -136,20 +117,20 @@ By exploring these projects, you gain hands-on experience in:
 **Awab Elkhair Abdalla**
 Machine Learning Engineer · Researcher · Volunteer
 
-* 🔗 LinkedIn: [https://www.linkedin.com/in/awab-abdalla](https://www.linkedin.com/in/awab-abdalla)
-* 💻 GitHub: [https://github.com/Pinkkygold](https://github.com/Pinkkygold)
-* 📧 Email: **[awab1355@gmail.com](mailto:awab1355@gmail.com)**
+* 🔗 **[LinkedIn](https://www.linkedin.com/in/awab-abdalla)**
+* 💻 **[GitHub](https://github.com/Pinkkygold)**
+* 📧 **[awab1355@gmail.com](mailto:awab1355@gmail.com)**
 
-> “Unsupervised learning helps us discover the hidden structure behind the data—
-> and transform it into meaningful insights.”
+> “Unsupervised learning helps uncover hidden structure —
+> and transform data into meaningful insights.”
 
 ---
 
 # ⭐ Support
 
-If these projects helped you learn or inspired you:
+If you found these projects helpful:
 
-👉 **Please star the repository**
-Your support motivates the creation of more open-source ML applications!
+👉 **Please star the repository!**
+Your support motivates more open-source ML projects 🚀✨
 
 ---
